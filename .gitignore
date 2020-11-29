@@ -1,0 +1,24 @@
+# ignore node / js dependencies
+/node_modules
+# ignore compiled files - they should never be committed to the repo
+/public/hot
+/public/storage
+/public/js
+/public/css
+# ignore keys
+/storage/*.key
+# ignore php dependencies
+/vendor
+# ignore personal environment files
+.env
+.env.backup
+# ignore cached phpunit test results
+.phpunit.result.cache
+# ignore Laravel Homestead specific files
+Homestead.json
+Homestead.yaml
+# ignore error logs
+npm-debug.log
+yarn-error.log
+# ignore IDE files
+.idea/*

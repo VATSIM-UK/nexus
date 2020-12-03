@@ -1,0 +1,157 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - '*'
+      - '**'
+    tags-ignore:
+      - v*
+  pull_request:
+
+jobs:
+  test:
+    name: PHP
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.4']
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      #
+      # ENVIRONMENT DEPENDENCIES SETUP
+      #
+      - name: Configure PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: pcov
+
+      - name: Setup Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+
+      # Start MySQL and Create Databases
+      - name: Create Databases
+        run: |
+          sudo /etc/init.d/mysql start
+          mysql -e 'CREATE DATABASE IF NOT EXISTS nexus;' -h127.0.0.1 -uroot -proot
+
+      #
+      # COMPOSER DEPENDENICES
+      #
+
+      # Add Github Auth to Composer
+      - name: Add Composer GitHub Token
+        run: composer config -g github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
+
+      # Restore Caches
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Restore Composer Cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Restore Vendor From Cache
+        uses: actions/cache@v1
+        with:
+          path: vendor
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
+
+      # Install
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-interaction --optimize-autoloader --no-suggest
+
+      #
+      # YARN DEPENDENCIES
+      #
+
+      # Restore Caches
+      - name: Get Yarn Cache Directory
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Restore Yarn Cache
+        uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # Install
+      - name: Install Core Assets
+        run: yarn
+
+      - name: Compile Core Assets
+        run: yarn run prod
+
+      #
+      # APPLICATION SETUP
+      #
+
+      # Environment Configuration
+      - name: Create empty Environment File
+        run: touch .env
+
+      - name: Set Environment Variables
+        uses: allenevans/set-env@v2.0.0
+        with:
+          APP_ENV: testing
+          APP_KEY: base64:wx/g4ayECKlSzOYSguRFoCrsd+KSbAyEiy0J8zWxxyU=
+          APP_URL: 127.0.0.1
+          CACHE_DRIVER: array
+          DB_MYSQL_HOST: localhost
+          DB_MYSQL_PORT: 3306
+          DB_MYSQL_USER: root
+          DB_MYSQL_PASS: root
+          DB_MYSQL_NAME: nexus
+
+      # Run Database Migration
+      - name: Migrate Database
+        run: php artisan migrate
+
+      # Cache Setup
+      - name: Cache Routes
+        run: php artisan route:cache
+
+      - name: Cache Config
+        run: php artisan config:cache
+
+      # Start Application
+      - name: Serve Application
+        run: php artisan serve -q &
+
+      #
+      # RUN TESTING SUITE
+      #
+
+      # Run Tests
+      - name: Execute PHPUnit Tests With Coverage
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+  trigger-deploy:
+    name: Trigger Deployment
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      #
+      # DEPLOY (main only)
+      #
+      - name: Trigger Deploy workflow
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT }}
+          event-type: deploy-trigger

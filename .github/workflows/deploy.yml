@@ -185,6 +185,7 @@ jobs:
             $PHP_PATH artisan down
 
             # Deployment Tasks
+            $PHP_PATH artisan migrate --step --force -n
             $PHP_PATH artisan route:cache
             $PHP_PATH artisan view:clear
             $PHP_PATH artisan storage:link

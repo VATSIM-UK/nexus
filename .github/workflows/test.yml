@@ -91,10 +91,10 @@ jobs:
             ${{ runner.os }}-yarn-
 
       # Install
-      - name: Install Core Assets
+      - name: Install assets
         run: yarn
 
-      - name: Compile Core Assets
+      - name: Compile assets
         run: yarn run prod
 
       #

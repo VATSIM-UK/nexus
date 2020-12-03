@@ -114,9 +114,9 @@ jobs:
           CACHE_DRIVER: array
           DB_HOST: localhost
           DB_PORT: 3306
-          DB_USER: root
-          DB_PASS: root
-          DB_NAME: nexus
+          DB_USERNAME: root
+          DB_PASSWORD: root
+          DB_DATABASE: nexus
 
       # Run Database Migration
       - name: Migrate Database

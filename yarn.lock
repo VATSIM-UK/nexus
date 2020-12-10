@@ -836,10 +836,10 @@
   resolved "https://registry.yarnpkg.com/@inertiajs/inertia-vue3/-/inertia-vue3-0.2.3.tgz#855f9e6ab7b0ae1f64b198c734c7bf8afdb93bde"
   integrity sha512-6Y2fMPj7+IPooqzd3anEDIwxKBoHh/R09zIQMODycDlJOsjxqlaFA2N9KKePmjZ3x1mBtZQDozwqIddz6bxDxw==
 
-"@inertiajs/inertia@^0.6.3":
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/@inertiajs/inertia/-/inertia-0.6.3.tgz#e8ccab5823478e57cef50e46fc32e341bcdfd40d"
-  integrity sha512-Jak1qqJNZqGK7w2tSfZqGPiArmyxJ5Ks8vOv+T0j3ha3u+pmPIrPIrrUdls6j+euy+/HKp2YxxsVoQ0jN/iA1A==
+"@inertiajs/inertia@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@inertiajs/inertia/-/inertia-0.7.0.tgz#4838a7b080c8ef5679c597f37361e8aba36d117a"
+  integrity sha512-Lmzg+Y0C5Tau6orx9nVnFPWnMmsDUiO+uXoMABNz+ZlYvcTblgGQkxEVsNH7ImP/8pyNnG2wF6th+IX1QLW8wg==
   dependencies:
     axios "^0.19.0 || ^0.20.0"
     deepmerge "^4.0.0"

@@ -10,9 +10,10 @@
         "prod": "mix --production"
     },
     "devDependencies": {
-        "@inertiajs/inertia": "^0.7.0",
-        "@inertiajs/inertia-vue3": "^0.2.2",
+        "@inertiajs/inertia": "^0.8.0",
+        "@inertiajs/inertia-vue3": "^0.3.4",
         "@vue/compiler-sfc": "^3.0.5",
+        "autoprefixer": "^10.0.2",
         "laravel-mix": "^6.0.9",
         "postcss": "^8.2",
         "tailwindcss": "^2.0.2",

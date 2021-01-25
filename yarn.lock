@@ -831,10 +831,10 @@
     postcss "7.0.32"
     purgecss "^3.0.0"
 
-"@inertiajs/inertia-vue3@^0.3.4":
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@inertiajs/inertia-vue3/-/inertia-vue3-0.3.4.tgz#70deb3fbfae6daf806c551fa5a7a6a9d23376d06"
-  integrity sha512-3ggfjFjpKfRlIXGjZnh8UHPc6eKA2MKB42dSnlVaASiGf6lzKGZZkLBuuUtow/n9CQRvD4eDDbr4zXV8qWqkBw==
+"@inertiajs/inertia-vue3@^0.3.5":
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/@inertiajs/inertia-vue3/-/inertia-vue3-0.3.5.tgz#149ff1ab9853847ffeb02a70f121cd6fef3b9fd2"
+  integrity sha512-DiFPVrt8ljwQGdjZM6J+PdodPblOdi9sh0+UBCBqhVNWCSKbE+y1NZDwKh669qmI6ICXBq3nc26k4JJfS7I7rQ==
 
 "@inertiajs/inertia@^0.8.4":
   version "0.8.4"

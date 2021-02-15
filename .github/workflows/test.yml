@@ -130,7 +130,7 @@ jobs:
 
       # Run Tests
       - name: Execute Tests
-        run: php artisan test
+        run: vendor/bin/phpunit
 
   trigger-deploy:
     name: Trigger Deployment

@@ -6,7 +6,7 @@ This project uses [Tailwind](https://www.tailwindcss.com), [Alpine.js](https://w
 Clone this repository to your local machine and enter the directory that is created.
 ```git
 git clone git@github.com:VATSIM-UK/nexus.git vatsim-uk-nexus
-cd vatsim-uk/nexus
+cd vatsim-uk-nexus
 ```
 
 ### Setting Up Laravel

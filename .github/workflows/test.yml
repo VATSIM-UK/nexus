@@ -105,7 +105,7 @@ jobs:
         with:
           APP_ENV: testing
           APP_KEY: base64:wx/g4ayECKlSzOYSguRFoCrsd+KSbAyEiy0J8zWxxyU=
-          APP_URL: 127.0.0.1
+          APP_URL: http://127.0.0.1
           CACHE_DRIVER: array
           DB_HOST: localhost
           DB_PORT: 3306
@@ -130,7 +130,7 @@ jobs:
 
       # Run Tests
       - name: Execute Tests
-        run: vendor/bin/phpunit
+        run: php artisan test
 
   trigger-deploy:
     name: Trigger Deployment

@@ -1,7 +1,7 @@
 <?php
 
-use Tests\TestCase;
 use Livewire\Livewire;
+use Tests\TestCase;
 
 class LandingPageTest extends TestCase
 {

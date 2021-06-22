@@ -12,7 +12,7 @@
     "devDependencies": {
         "alpinejs": "^3.1.0",
         "autoprefixer": "^10.2.6",
-        "laravel-mix": "^6.0.19",
+        "laravel-mix": "^6.0.24",
         "postcss": "^8.3",
         "tailwindcss": "^2.2.2"
     }

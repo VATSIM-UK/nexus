@@ -4,7 +4,7 @@ services:
     build:
       context: .
     ports:
-      - "4000:80"
+      - 4000:80
     volumes:
       - "..:/app/nexus"
     depends_on:
@@ -17,8 +17,6 @@ services:
       - PMA_ARBITRARY=1
   mysql:
     image: "mysql:8.0"
-    ports:
-      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ""
       MYSQL_DATABASE: "nexus"
@@ -27,5 +25,6 @@ services:
       - "nexus_dev_db:/var/lib/mysql"
     healthcheck:
       test: ["CMD", "mysqladmin", "ping"]
+
 volumes:
   nexus_dev_db:

@@ -30,4 +30,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'vatsim_uk_core' => [
+        'client_id' => env('CORE_SSO_CLIENT'),
+        'client_secret' => env('CORE_SSO_SECRET'),
+        'sso_base' => env('CORE_SSO_BASE', 'https://vatsim.uk')
+    ]
+
 ];

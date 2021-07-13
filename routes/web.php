@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Livewire\LandingPage;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', LandingPage::class);
+
+Route::middleware('guest')->group(function () {
+    Route::get('/auth/login', [AuthController::class, 'redirect'])->name('auth.login');
+    Route::get('/auth/login/callback', [AuthController::class, 'callback'])->name('auth.login.callback');
+});

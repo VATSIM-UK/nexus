@@ -1,0 +1,27 @@
+{
+  "name": "PHP",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "nexus",
+  "workspaceFolder": "/app/nexus",
+
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+  },
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "felixfbecker.php-debug",
+    "felixfbecker.php-intellisense",
+    "mrmlnc.vscode-apache",
+    "bradlc.vscode-tailwindcss",
+    "octref.vetur",
+    "bmewburn.vscode-intelephense-client",
+    "esbenp.prettier-vscode"
+  ],
+
+  // For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
+  "forwardPorts": [8080, 3306],
+
+  "postCreateCommand": "composer install --no-interaction && yarn"
+}

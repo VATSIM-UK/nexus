@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
             function ($app) use ($socialite) {
                 $config = $app['config']['services.vatsim_uk_core'];
                 $config['redirect'] = route('auth.login.callback');
+
                 return $socialite->buildProvider(VATSIMUKProvider::class, $config);
             }
         );

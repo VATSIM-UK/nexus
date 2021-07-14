@@ -17,7 +17,7 @@ class VATSIMUKProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase(config('services.vatsim_uk_core.sso_base') . '/oauth/authorize', $state);
+        return $this->buildAuthUrlFromBase(config('services.vatsim_uk_core.sso_base').'/oauth/authorize', $state);
     }
 
     /**
@@ -27,7 +27,7 @@ class VATSIMUKProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getTokenUrl()
     {
-        return config('services.vatsim_uk_core.sso_base') . '/oauth/token';
+        return config('services.vatsim_uk_core.sso_base').'/oauth/token';
     }
 
     /**
@@ -38,9 +38,9 @@ class VATSIMUKProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get(config('services.vatsim_uk_core.sso_base') . '/api/user', [
+        $response = $this->getHttpClient()->get(config('services.vatsim_uk_core.sso_base').'/api/user', [
             'headers' => [
-                'Authorization' => 'Bearer ' . $token,
+                'Authorization' => 'Bearer '.$token,
             ],
         ]);
 

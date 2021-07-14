@@ -120,5 +120,5 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'cid_whitelist' => explode(',', env('AUTH_CID_WHITELIST', ''))
+    'cid_whitelist' => explode(',', env('AUTH_CID_WHITELIST', '')),
 ];

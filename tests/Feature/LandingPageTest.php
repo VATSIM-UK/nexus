@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -19,5 +20,32 @@ class LandingPageTest extends TestCase
         Livewire::test('landing-page')
             ->assertSee('Nexus')
             ->assertOk();
+    }
+
+    /** @test */
+    public function the_landing_page_shows_login_button_when_logged_out()
+    {
+        Livewire::test('landing-page')
+            ->assertSee('Login')
+            ->call('login')
+            ->assertRedirect('/auth/login');
+    }
+
+    /** @test */
+    public function the_landing_page_shows_logout_button_and_user_name_when_logged_in()
+    {
+        $user = User::factory()->create([
+            'first_name' => 'Joe'
+        ]);
+        $this->actingAs($user);
+
+        Livewire::test('landing-page')
+            ->assertSee('Logout')
+            ->assertSeeText('Hello, Joe');
+
+        Livewire::test('landing-page')
+            ->call('logout');
+
+        $this->assertFalse($this->isAuthenticated());
     }
 }

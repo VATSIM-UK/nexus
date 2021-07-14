@@ -13,7 +13,6 @@
   "extensions": [
     "felixfbecker.php-debug",
     "felixfbecker.php-intellisense",
-    "mrmlnc.vscode-apache",
     "bradlc.vscode-tailwindcss",
     "bmewburn.vscode-intelephense-client",
     "esbenp.prettier-vscode"

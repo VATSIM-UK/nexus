@@ -35,7 +35,7 @@ class LandingPageTest extends TestCase
     public function the_landing_page_shows_logout_button_and_user_name_when_logged_in()
     {
         $user = User::factory()->create([
-            'first_name' => 'Joe'
+            'first_name' => 'Joe',
         ]);
         $this->actingAs($user);
 

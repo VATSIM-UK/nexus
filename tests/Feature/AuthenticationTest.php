@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Laravel\Socialite\Facades\Socialite;
 use Laravel\Socialite\Two\User;
 use Tests\TestCase;
@@ -22,7 +20,7 @@ class AuthenticationTest extends TestCase
     /** @test */
     public function it_handles_sso_callback_when_whitelisted()
     {
-        $socialiteUser =  new User();
+        $socialiteUser = new User();
         $socialiteUser->id = 1300001;
         $socialiteUser->email = 'fakeemail@example.org';
         $socialiteUser->first_name = 'Joe';
@@ -35,11 +33,10 @@ class AuthenticationTest extends TestCase
         $this->assertAuthenticated();
     }
 
-
     /** @test */
     public function it_handles_rejects_user_if_not_whitelisted()
     {
-        $socialiteUser =  new User();
+        $socialiteUser = new User();
         $socialiteUser->id = 10000001;
         $socialiteUser->email = 'fakeemail@example.org';
         $socialiteUser->first_name = 'Joe';

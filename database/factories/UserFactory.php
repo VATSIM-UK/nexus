@@ -25,7 +25,7 @@ class UserFactory extends Factory
             'vatsim_cid' => $this->faker->numberBetween(100000, 2000000),
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
-            'email' => $this->faker->safeEmail()
+            'email' => $this->faker->safeEmail(),
         ];
     }
 }

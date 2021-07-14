@@ -1,11 +1,14 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
 use Tests\TestCase;
 
 class LandingPageTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     public function the_homepage_contains_the_livewire_component()
     {

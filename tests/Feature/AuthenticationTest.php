@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Laravel\Socialite\Facades\Socialite;
@@ -8,6 +9,8 @@ use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     public function it_gets_redirected_for_sso_login()
     {

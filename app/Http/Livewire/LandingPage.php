@@ -3,8 +3,6 @@
 namespace App\Http\Livewire;
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Laravel\Socialite\Facades\Socialite;
 use Livewire\Component;
 
 class LandingPage extends Component

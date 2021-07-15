@@ -18,9 +18,9 @@
         <server name="APP_ENV" value="testing"/>
         <server name="BCRYPT_ROUNDS" value="4"/>
         <server name="CACHE_DRIVER" value="array"/>
-        <env name="CORE_SSO_BASE" value="http://vatsimukcore.example"/>
-        <env name="CORE_SSO_CLIENT" value="1"/>
-        <env name="CORE_SSO_SECRET" value="S3cret"/>
+        <server name="CORE_SSO_BASE" value="http://vatsimukcore.example"/>
+        <server name="CORE_SSO_CLIENT" value="1"/>
+        <server name="CORE_SSO_SECRET" value="S3cret"/>
         <server name="AUTH_CID_WHITELIST" value="1300001,1300002"/>
         <server name="DB_CONNECTION" value="sqlite"/>
         <server name="DB_DATABASE" value=":memory:"/>

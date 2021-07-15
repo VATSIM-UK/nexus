@@ -117,8 +117,10 @@ jobs:
       - name: Cache Routes
         run: php artisan route:cache
 
-      - name: Cache Config
-        run: php artisan config:cache
+      # - name: Cache Config
+      #   run: php artisan config:cache
+      - name: Clear Config Cache
+        run: php artisan config:clear
 
       # Start Application
       - name: Serve Application

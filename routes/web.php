@@ -22,6 +22,4 @@ Route::middleware('guest')->group(function () {
     Route::get('/auth/login/callback', [AuthController::class, 'callback'])->name('auth.login.callback');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
-});
+Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');

@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Socialite\Facades\Socialite;
 use Laravel\Socialite\Two\User;
+use App\Models\User as AppUser;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
@@ -10,7 +11,34 @@ class AuthenticationTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function it_gets_redirected_for_sso_login()
+    public function users_can_logout()
+    {
+        // As Guest
+        $this->get('/auth/logout')
+            ->assertRedirect('/');
+
+
+        $this->actingAs(AppUser::factory()->create())
+            ->get('/auth/logout')
+            ->assertRedirect('/');
+
+        $this->assertFalse($this->isAuthenticated());
+    }
+
+    /** @test */
+    public function authenticated_users_cant_login()
+    {
+        $this->actingAs(AppUser::factory()->create());
+
+        $this->get('auth/login')
+            ->assertRedirect('/');
+
+        $this->get('auth/login/callback')
+            ->assertRedirect('/');
+    }
+
+    /** @test */
+    public function guests_get_redirected_for_sso_login()
     {
         $response = $this->get('/auth/login');
 
@@ -37,7 +65,7 @@ class AuthenticationTest extends TestCase
     }
 
     /** @test */
-    public function it_handles_rejects_user_if_not_whitelisted()
+    public function it_rejects_user_if_not_whitelisted()
     {
         $socialiteUser = new User();
         $socialiteUser->id = 10000001;

@@ -12,7 +12,6 @@ class AuthenticationTest extends TestCase
     /** @test */
     public function it_gets_redirected_for_sso_login()
     {
-        dd(config('services.vatsim_uk_core'));
         $response = $this->get('/auth/login');
 
         $response->assertRedirect();

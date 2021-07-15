@@ -1,9 +1,9 @@
 <?php
 
+use App\Models\User as AppUser;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Socialite\Facades\Socialite;
 use Laravel\Socialite\Two\User;
-use App\Models\User as AppUser;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
@@ -16,7 +16,6 @@ class AuthenticationTest extends TestCase
         // As Guest
         $this->get('/auth/logout')
             ->assertRedirect('/');
-
 
         $this->actingAs(AppUser::factory()->create())
             ->get('/auth/logout')

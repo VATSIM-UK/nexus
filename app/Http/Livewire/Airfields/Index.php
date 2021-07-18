@@ -19,7 +19,7 @@ class Index extends Component
 {
     public string $search = '';
 
-    protected array $queryString = ['search' => ['except' => ''], 'showEmpty' => ['except' => false]];
+    protected $queryString = ['search' => ['except' => ''], 'showEmpty' => ['except' => false]];
 
     public bool $showEmpty = false;
 

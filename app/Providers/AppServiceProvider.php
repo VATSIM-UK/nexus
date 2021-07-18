@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use InvalidArgumentException;
 use App\Auth\VATSIMUKProvider;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\ServiceProvider;
+use InvalidArgumentException;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -44,18 +44,18 @@ class AppServiceProvider extends ServiceProvider
             $requestedMethodRequiresBody = in_array(strtolower($method), $bodyRequiredMethods);
 
             if ($requestedMethodRequiresBody && $body === []) {
-                throw new InvalidArgumentException(sprintf("Body required when making request using %s", implode(separator: ', ', array: $bodyRequiredMethods)));
+                throw new InvalidArgumentException(sprintf('Body required when making request using %s', implode(separator: ', ', array: $bodyRequiredMethods)));
             }
 
             $baseHttpObject = Http::withHeaders([
-                'Authorization' => "Bearer {$apiToken}"
+                'Authorization' => "Bearer {$apiToken}",
             ]);
 
-            $url = config('services.vatsim_uk_controller_api.base_url') . $endpoint;
+            $url = config('services.vatsim_uk_controller_api.base_url').$endpoint;
 
-            return $requestedMethodRequiresBody 
-                ? $baseHttpObject->$method($url, $body) 
+            return $requestedMethodRequiresBody
+                ? $baseHttpObject->$method($url, $body)
                 : $baseHttpObject->$method($url)->json();
-        }); 
+        });
     }
 }

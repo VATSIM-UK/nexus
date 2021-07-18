@@ -2,34 +2,34 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
+use App\Http\Livewire\Airfields\Index;
 use App\Models\User;
-use Livewire\Livewire;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Http;
-use App\Http\Livewire\Airfields\Index;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Livewire\Livewire;
+use Tests\TestCase;
 
 class AirfieldsIndexTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected function setUp(): void 
+    protected function setUp(): void
     {
         parent::setUp();
 
         Http::fake([
             '*/admin/airfields*' => Http::response([
-                    'airfields' => [
-                        [
-                            'code' => 'EGLL',
-                            'stands_count' => 1
-                        ]
-                    ]
-                ], 200)
+                'airfields' => [
+                    [
+                        'code' => 'EGLL',
+                        'stands_count' => 1,
+                    ],
+                ],
+            ], 200),
         ]);
     }
+
     /** @test */
     public function it_should_render_component_when_authenticated()
     {
@@ -43,7 +43,7 @@ class AirfieldsIndexTest extends TestCase
             ->test(Index::class);
 
         Http::assertSent(function (Request $request) {
-            return $request->url() == "ukcp.test/admin/airfields?all=true";       
+            return $request->url() == 'ukcp.test/admin/airfields?all=true';
         });
     }
 }

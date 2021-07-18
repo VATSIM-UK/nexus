@@ -10,7 +10,7 @@ cd vatsim-uk-nexus
 ```
 
 ### Development Environment
-The repository targets PHP 7.4 and Node JS (Currently tested with v12).
+The repository targets PHP 8.0 and Node JS (Currently tested with v12).
 
 If you use VS Code and Docker, our repository contains a dev container configuration that will automatically launch a ready-to-go development environment (including database). Click "Open in Dev Container" when prompted, or run the task from the F1 menu.
 

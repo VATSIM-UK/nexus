@@ -9,7 +9,7 @@
 
     @livewireStyles
   </head>
-  <body class="h-screen overflow-hidden bg-gray-100 dark:bg-gray-900">
+  <body class="h-screen bg-gray-100 dark:bg-gray-900 container mx-auto">
     {{ $slot }}
 
     @livewireScripts

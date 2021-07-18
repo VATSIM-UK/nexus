@@ -15,5 +15,8 @@
         "laravel-mix": "^6.0.25",
         "postcss": "^8.3",
         "tailwindcss": "^2.2.4"
+    },
+    "dependencies": {
+        "@tailwindcss/forms": "^0.3.3"
     }
 }

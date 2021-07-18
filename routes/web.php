@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use App\Http\Livewire\LandingPage;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,8 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+
+Route::middleware('auth')->namespace('App\Http\Livewire')->group(function () {
+    Route::get('/airfields', 'Airfields\Index');
+});

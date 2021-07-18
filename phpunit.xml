@@ -28,5 +28,7 @@
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
         <server name="TELESCOPE_ENABLED" value="false"/>
+        <server name="CONTROLLER_API_BASE_URL" value="ukcp.test"/>
+        <server name="CONTROLLER_API_TOKEN" value="dummy-token" />
     </php>
 </phpunit>

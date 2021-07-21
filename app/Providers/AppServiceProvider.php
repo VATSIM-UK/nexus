@@ -51,8 +51,8 @@ class AppServiceProvider extends ServiceProvider
 
             $url = config('services.vatsim_uk_controller_api.base_url').$endpoint;
 
-            return $requestedMethodRequiresBody 
-                ? $baseHttpObject->$method($url, $body)->json() 
+            return $requestedMethodRequiresBody
+                ? $baseHttpObject->$method($url, $body)->json()
                 : $baseHttpObject->$method($url)->json();
         });
     }

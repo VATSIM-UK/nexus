@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Airfields;
 
-use Livewire\Component;
-use Illuminate\Support\Facades\Http;
 use App\Http\Resources\UKCP\AirfieldCollection;
+use Illuminate\Support\Facades\Http;
+use Livewire\Component;
 
 class Index extends Component
 {

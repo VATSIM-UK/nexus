@@ -12,8 +12,8 @@
     <main wire:loading.remove class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
         @foreach($airfields as $airfield)
             <div class="flex box-border flex-col bg-white rounded-lg shadow-lg p-8 hover:bg-uk-blue cursor-pointer">
-                <h2 class="text-2xl font-medium">{{ $airfield->code }}</h2>
-                <p>Stands: {{ $airfield->stands_count }}</p>
+                <h2 class="text-2xl font-medium">{{ $airfield['code'] }}</h2>
+                <p>Stands: {{ $airfield['stands_count'] }}</p>
             </div>
         @endforeach
     </main> 

@@ -47,14 +47,12 @@ class AppServiceProvider extends ServiceProvider
                 throw new InvalidArgumentException(sprintf("Body required when making request using %s", implode(separator: ', ', array: $bodyRequiredMethods)));
             }
 
-            $baseHttpObject = Http::withHeaders([
-                'Authorization' => "Bearer {$apiToken}"
-            ]);
+            $baseHttpObject = Http::withToken($apiToken);
 
             $url = config('services.vatsim_uk_controller_api.base_url') . $endpoint;
 
             return $requestedMethodRequiresBody 
-                ? $baseHttpObject->$method($url, $body) 
+                ? $baseHttpObject->$method($url, $body)->json() 
                 : $baseHttpObject->$method($url)->json();
         }); 
     }

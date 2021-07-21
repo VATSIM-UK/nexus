@@ -1,4 +1,4 @@
-FROM webdevops/php-apache-dev:7.4
+FROM webdevops/php-apache-dev:8.0
 
 ENV WEB_DOCUMENT_ROOT=/app/nexus/public
 

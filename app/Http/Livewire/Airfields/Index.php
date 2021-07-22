@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Airfields;
 
+use App\Services\UKCP;
 use Livewire\Component;
 use Illuminate\Support\Facades\Http;
 use App\Http\Resources\UKCP\AirfieldCollection;
@@ -14,16 +15,10 @@ class Index extends Component
 
     public bool $showEmpty = false;
 
-    public function render()
+    public function render(UKCP $service)
     {
-        $url = $this->showEmpty ? '/admin/airfields?all=true' : '/admin/airfields';
-        $airfields = (new AirfieldCollection(Http::ukcp($url)['airfields']))->sortBy('code');
+        $airfields = $service->getAirfields($this->showEmpty);
 
-        // allow to search based upon a match of the
-        $airfields_filtered = $this->search
-            ? $airfields->search($this->search)
-            : $airfields;
-
-        return view('livewire.airfields.index', ['airfields' => $airfields_filtered]);
+        return view('livewire.airfields.index', ['airfields' => $airfields->search($this->search)->sortBy('code')]);
     }
 }

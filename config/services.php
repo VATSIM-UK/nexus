@@ -37,7 +37,7 @@ return [
     ],
 
     'vatsim_uk_controller_api' => [
-        'base_url' => env('CONTROLLER_API_BASE_URL'),
-        'token' => env('CONTROLLER_API_TOKEN'),
+        'base_url' => env('UKCP_API_BASE_URL'),
+        'token' => env('UKCP_API_TOKEN'),
     ],
 ];

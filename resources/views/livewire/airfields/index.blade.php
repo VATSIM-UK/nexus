@@ -2,10 +2,10 @@
     <header class="flex flex-col mt-4">
         <div class="flex flex-col text-center md:text-left md:flex-row justify-between">
             <h1 class="text-white text-5xl font-medium ">Airfields</h1>
-            <input type="text" wire:model="search" placeholder="Search by ICAO..." class="rounded mt-2 md:mt-0">
+            <input type="text" wire:model.debounce="search" placeholder="Search by ICAO..." class="rounded mt-2 md:mt-0">
         </div>
         <div class="flex items-center justify-end mt-1">
-            <input type="checkbox" class="rounded" wire:model="showEmpty">
+            <input type="checkbox" class="rounded" wire:model.lazy="showEmpty">
             <p class="text-white ml-2">Show Empty Airfields</p>
         </div>
     </header>

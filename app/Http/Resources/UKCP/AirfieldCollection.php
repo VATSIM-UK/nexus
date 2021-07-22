@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\UKCP;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class AirfieldCollection extends ResourceCollection
@@ -27,6 +28,9 @@ class AirfieldCollection extends ResourceCollection
      */
     public function search(string $searchTerm) : AirfieldCollection
     {
-        return $this->airfields->filter(fn ($item) => preg_match("/{$searchTerm}/", $this->code) || stristr($this->code, $searchTerm));
+        if (!$searchTerm) {
+            return new static($this->collection);
+        }
+        return new static($this->collection->filter(fn ($item) => Str::contains($item['code'], $searchTerm) || stristr($item['code'], $searchTerm)));
     }
 }

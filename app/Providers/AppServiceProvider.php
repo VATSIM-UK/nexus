@@ -2,10 +2,8 @@
 
 namespace App\Providers;
 
-use App\Services\UKCP;
-use InvalidArgumentException;
 use App\Auth\VATSIMUKProvider;
-use Illuminate\Support\Facades\Http;
+use App\Services\UKCP;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

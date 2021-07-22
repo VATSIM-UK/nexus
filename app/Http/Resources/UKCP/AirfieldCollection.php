@@ -13,10 +13,10 @@ class AirfieldCollection extends ResourceCollection
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function toArray($request) : array
+    public function toArray($request): array
     {
         return [
-            'airfields' => $this->collection
+            'airfields' => $this->collection,
         ];
     }
 
@@ -26,7 +26,7 @@ class AirfieldCollection extends ResourceCollection
      * @param string $searchTerm
      * @return $this
      */
-    public function search(string $searchTerm) : AirfieldCollection
+    public function search(string $searchTerm): AirfieldCollection
     {
         if (!$searchTerm) {
             return new static($this->collection);

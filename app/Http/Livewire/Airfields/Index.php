@@ -4,8 +4,6 @@ namespace App\Http\Livewire\Airfields;
 
 use App\Services\UKCP;
 use Livewire\Component;
-use Illuminate\Support\Facades\Http;
-use App\Http\Resources\UKCP\AirfieldCollection;
 
 class Index extends Component
 {

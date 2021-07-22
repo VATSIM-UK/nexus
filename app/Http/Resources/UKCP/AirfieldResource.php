@@ -16,7 +16,7 @@ class AirfieldResource extends JsonResource
     {
         return [
             'code' => $this->code,
-            'stands_count' => $this->stands_count
+            'stands_count' => $this->stands_count,
         ];
     }
 }

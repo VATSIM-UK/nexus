@@ -102,15 +102,6 @@ jobs:
         run: yarn run prod
 
       #
-      # CONFIGURATION FILES
-      # Create any configuration files, interpolating secrets
-      #
-      - name: Create .env from Secrets value
-        env:
-          ENV_FILE_CONTENTS: ${{ secrets.ENV_FILE_CONTENTS }}
-        run: 'echo "$ENV_FILE_CONTENTS" > .env'
-
-      #
       # DEPLOYMENT
       # Prepare remote environment and deploy application
       #
@@ -138,10 +129,13 @@ jobs:
           script: |
             # Ensure we're working from the current release
             cd $RELEASE_DIRECTORY
+            
+            # Symlink .env from root directory
+            ln -s $APPLICATION_ROOT/.env .env
 
             # Install application dependencies
             $PHP_PATH /usr/local/bin/composer install --optimize-autoloader --no-dev
-          envs: RELEASE_DIRECTORY,PHP_PATH
+          envs: RELEASE_DIRECTORY,APPLICATION_ROOT,PHP_PATH
 
       - name: (Remote) Update symbolic links
         uses: appleboy/ssh-action@master

@@ -36,4 +36,8 @@ return [
         'sso_base' => env('CORE_SSO_BASE', 'https://vatsim.uk'),
     ],
 
+    'vatsim_uk_controller_api' => [
+        'base_url' => env('UKCP_API_BASE_URL'),
+        'token' => env('UKCP_API_TOKEN'),
+    ],
 ];

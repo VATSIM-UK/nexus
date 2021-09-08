@@ -50,7 +50,7 @@ class VATSIMUKProvider extends AbstractProvider implements ProviderInterface
     /**
      * Get the POST fields for the token request.
      *
-     * @param string $code
+     * @param  string  $code
      *
      * @return array
      */

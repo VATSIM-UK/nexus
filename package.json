@@ -10,11 +10,11 @@
         "prod": "mix --production"
     },
     "devDependencies": {
-        "alpinejs": "^3.2.4",
-        "autoprefixer": "^10.3.1",
-        "laravel-mix": "^6.0.28",
+        "alpinejs": "^3.3.2",
+        "autoprefixer": "^10.3.4",
+        "laravel-mix": "^6.0.29",
         "postcss": "^8.3",
-        "tailwindcss": "^2.2.7",
+        "tailwindcss": "^2.2.14",
         "@tailwindcss/forms": "^0.3.3"
     }
 }

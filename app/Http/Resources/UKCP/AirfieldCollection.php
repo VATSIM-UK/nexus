@@ -23,7 +23,7 @@ class AirfieldCollection extends ResourceCollection
     /**
      * Search for an AirfieldResource in the collection.
      *
-     * @param string $searchTerm
+     * @param  string  $searchTerm
      * @return $this
      */
     public function search(string $searchTerm): AirfieldCollection

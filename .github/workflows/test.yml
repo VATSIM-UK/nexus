@@ -39,7 +39,7 @@ jobs:
       # Start MySQL and Create Databases
       - name: Create Databases
         run: |
-          sudo /etc/init.d/mysql start
+          sudo systemctl start mysql.service
           mysql -e 'CREATE DATABASE IF NOT EXISTS nexus;' -h127.0.0.1 -uroot -proot
 
       #

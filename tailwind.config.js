@@ -1,9 +1,8 @@
 module.exports = {
-  purge: [
+  content: [
     './resources/views/**/*.blade.php',
     './resources/js/**/*.vue',
   ],
-  darkMode: 'media',
   theme: {
     extend: {
       colors: {
@@ -11,7 +10,6 @@ module.exports = {
       },
     },
   },
-  variants: {},
   plugins: [
     require('@tailwindcss/forms'),
   ],

@@ -72,7 +72,7 @@ jobs:
       - name: Setup Yarn
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: '16'
 
       #
       # YARN BUILD
@@ -129,7 +129,7 @@ jobs:
           script: |
             # Ensure we're working from the current release
             cd $RELEASE_DIRECTORY
-            
+
             # Symlink .env from root directory
             ln -s $APPLICATION_ROOT/.env .env
 

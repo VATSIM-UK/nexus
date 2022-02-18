@@ -178,10 +178,13 @@ jobs:
             $PHP_PATH artisan view:clear
             $PHP_PATH artisan storage:link
             mv storage/logs/laravel.log storage/logs/laravel.log.`date +%s`; true
+            
+            # Notify Forge of Deployment
+            curl $FORGE_DEPLOY_WEBHOOK
 
             # Start Applications / Services
             $PHP_PATH artisan up
-          envs: RELEASE_DIRECTORY,PHP_PATH,TAG,GITHUB_REPOSITORY
+          envs: RELEASE_DIRECTORY,PHP_PATH,TAG,GITHUB_REPOSITORY,FORGE_DEPLOY_WEBHOOK
 
       #
       # HOUSEKEEPING

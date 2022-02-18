@@ -180,7 +180,7 @@ jobs:
             mv storage/logs/laravel.log storage/logs/laravel.log.`date +%s`; true
             
             # Notify Forge of Deployment
-            curl $FORGE_DEPLOY_WEBHOOK
+            bash <(curl -s $FORGE_DEPLOY_WEBHOOK)
 
             # Start Applications / Services
             $PHP_PATH artisan up

@@ -3246,10 +3246,10 @@ is-color-stop@^1.1.0:
     rgb-regex "^1.0.1"
     rgba-regex "^1.0.0"
 
-is-core-module@^2.8.1:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.8.1.tgz#f59fdfca701d5879d0a6b100a40aa1560ce27211"
-  integrity sha512-SdNCUs284hr40hFTFP6l0IfZ/RSrMXF3qgoRHd3/79unUTvrFO/JoXwkGm+5J/Oe3E/b5GsnG330uUNgRpu1PA==
+is-core-module@^2.9.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.10.0.tgz#9012ede0a91c69587e647514e1d5277019e728ed"
+  integrity sha512-Erxj2n/LDAZ7H8WNJXd9tw38GYM3dv8rk8Zcs+jJuxYTW7sozH+SS8NtrSjVL1/vpLvWi1hxy96IzjJ3EHTJJg==
   dependencies:
     has "^1.0.3"
 
@@ -3492,10 +3492,10 @@ laravel-mix@^6.0.34:
     webpackbar "^5.0.0-3"
     yargs "^17.0.1"
 
-lilconfig@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.0.5.tgz#19e57fd06ccc3848fd1891655b5a447092225b25"
-  integrity sha512-xaYmXZtTHPAw5m+xLN8ab9C+3a8YmV3asNSPOATITbtwrfbwaLJj8h66H1WMIpALCkqsIzK3h7oQ+PdX+LQ9Eg==
+lilconfig@^2.0.5, lilconfig@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.0.6.tgz#32a384558bd58af3d4c6e077dd1ad1d397bc69d4"
+  integrity sha512-9JROoBW7pobfsx+Sq2JsASvCo6Pfo6WWoUW79HuB1BCoBXD4PLWJPqDF6fNj67pqBYTbAHkE57M1kS/+L1neOg==
 
 lines-and-columns@^1.1.6:
   version "1.1.6"
@@ -4713,12 +4713,12 @@ resolve-from@^5.0.0:
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-5.0.0.tgz#c35225843df8f776df21c57557bc087e9dfdfc69"
   integrity sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==
 
-resolve@^1.1.7, resolve@^1.14.2, resolve@^1.22.0, resolve@^1.9.0:
-  version "1.22.0"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.0.tgz#5e0b8c67c15df57a89bdbabe603a002f21731198"
-  integrity sha512-Hhtrw0nLeSrFQ7phPp4OOcVjLPIeMnRlr5mcnVuMe7M/7eBn98A3hmFRLoFo3DLZkivSYwhRUJTyPyWAk56WLw==
+resolve@^1.1.7, resolve@^1.14.2, resolve@^1.22.1, resolve@^1.9.0:
+  version "1.22.1"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.1.tgz#27cb2ebb53f91abb49470a928bba7558066ac177"
+  integrity sha512-nBpuuYuY5jFsli/JIs1oldw6fOQCBioohqWZg/2hiaOybXOft4lonv85uDOKXdf8rhyK159cxU5cDcK/NKk8zw==
   dependencies:
-    is-core-module "^2.8.1"
+    is-core-module "^2.9.0"
     path-parse "^1.0.7"
     supports-preserve-symlinks-flag "^1.0.0"
 
@@ -5139,10 +5139,10 @@ svgo@^2.3.0:
     csso "^4.2.0"
     stable "^0.1.8"
 
-tailwindcss@^3.1.3:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.1.3.tgz#b9ef2c1ae537c339679e8e89635af8e143d1c7eb"
-  integrity sha512-PRJNYdSIthrb8hjmAyymEyEN8Yo61TMXpzyFUpxULeeyRn3Y3gpvuw6FlRTKrJvK7thSGKRnhT36VovVx4WeMA==
+tailwindcss@^3.1.8:
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.1.8.tgz#4f8520550d67a835d32f2f4021580f9fddb7b741"
+  integrity sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==
   dependencies:
     arg "^5.0.2"
     chokidar "^3.5.3"
@@ -5153,7 +5153,7 @@ tailwindcss@^3.1.3:
     fast-glob "^3.2.11"
     glob-parent "^6.0.2"
     is-glob "^4.0.3"
-    lilconfig "^2.0.5"
+    lilconfig "^2.0.6"
     normalize-path "^3.0.0"
     object-hash "^3.0.0"
     picocolors "^1.0.0"
@@ -5165,7 +5165,7 @@ tailwindcss@^3.1.3:
     postcss-selector-parser "^6.0.10"
     postcss-value-parser "^4.2.0"
     quick-lru "^5.1.1"
-    resolve "^1.22.0"
+    resolve "^1.22.1"
 
 tapable@^2.1.1, tapable@^2.2.0:
   version "2.2.0"

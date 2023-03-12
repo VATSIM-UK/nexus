@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Livewire\Airfields\Index;
 use App\Http\Livewire\LandingPage;
 use Illuminate\Support\Facades\Route;
 

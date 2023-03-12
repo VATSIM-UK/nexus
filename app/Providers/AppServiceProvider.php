@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Auth\VATSIMUKProvider;
-use App\Services\UKCP;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -36,7 +35,5 @@ class AppServiceProvider extends ServiceProvider
                 return $socialite->buildProvider(VATSIMUKProvider::class, $config);
             }
         );
-
-        $this->app->singleton(UKCP::class, fn ($app) => new UKCP());
     }
 }

@@ -9,7 +9,7 @@
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
     </testsuites>
-    <coverage processUncoveredFiles="true">
+    <coverage>
         <include>
             <directory suffix=".php">./app</directory>
         </include>
@@ -28,7 +28,5 @@
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
         <server name="TELESCOPE_ENABLED" value="false"/>
-        <server name="UKCP_API_BASE_URL" value="ukcp.test"/>
-        <server name="UKCP_API_TOKEN" value="dummy-token" />
     </php>
 </phpunit>

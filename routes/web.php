@@ -24,7 +24,3 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/airfields', Index::class);
-});

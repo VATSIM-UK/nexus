@@ -71,9 +71,9 @@ class VATSIMUKProvider extends AbstractProvider implements ProviderInterface
         $data = Arr::get($user, 'data', []);
 
         return (new User())->setRaw($data)->map([
-            'id'       => $data['cid'],
-            'name'     => $data['name_full'],
-            'email'    => $data['email'],
+            'id' => $data['cid'],
+            'name' => $data['name_full'],
+            'email' => $data['email'],
             'first_name' => $data['name_first'],
             'last_name' => $data['name_last'],
         ]);

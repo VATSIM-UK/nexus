@@ -31,7 +31,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
 
-      - name: Setup Yarn
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -50,54 +50,43 @@ jobs:
       - name: Add Composer GitHub Token
         run: composer config -g github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
 
-      # Restore Caches
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-      - name: Restore Composer Cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
-
-      - name: Restore Vendor From Cache
+      - name: Composer Cache
         uses: actions/cache@v4
         with:
           path: vendor
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
+          key: composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            composer-${{ hashFiles('**/composer.lock') }}
+            composer-
 
       # Install
       - name: Install Composer Dependencies
         run: composer install --prefer-dist --no-interaction --optimize-autoloader --no-suggest
 
       #
-      # YARN DEPENDENCIES
+      # NODE DEPENDENCIES
       #
 
-      # Restore Caches
-      - name: Get Yarn Cache Directory
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Restore Yarn Cache
+      - name: Node Cache
         uses: actions/cache@v4
-        id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            node_modules
+            public/build
+            public/css
+            public/js
+            public/mix-manifest.json
+          key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            npm-${{ hashFiles('**/package-lock.json') }}
+            npm-
 
       # Install
       - name: Install assets
-        run: yarn
+        run: npm ci
 
       - name: Compile assets
-        run: yarn run prod
+        run: npm run build
 
       - name: Set Environment Variables
         uses: allenevans/set-env@v2.0.0

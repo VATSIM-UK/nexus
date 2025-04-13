@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="We pride ourselves in providing regular and high quality air traffic control for our pilots as part of the VATSIM network.">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet" />
+    @vite(['resources/css/app.css'])
     <title>VATSIM UK - Nexus</title>
 
     @livewireStyles
@@ -13,6 +13,6 @@
     {{ $slot }}
 
     @livewireScripts
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    @vite(['resources/js/app.js'])
   </body>
 </html>

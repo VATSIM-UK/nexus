@@ -69,37 +69,46 @@ jobs:
       # BUILD DEPENDENCIES SETUP
       #
 
-      - name: Setup Yarn
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
 
       #
-      # YARN BUILD
-      # Install node_modules and run webpack
+      # Node BUILD
       #
 
       # Restore Caches
-      - name: Get Yarn Cache Directory
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Restore Yarn Cache
+      - name: Composer Cache
         uses: actions/cache@v4
-        id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: vendor
+          key: composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            composer-${{ hashFiles('**/composer.lock') }}
+            composer-
 
-      # Install node_modules
+      - name: Node Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            public/build
+            public/css
+            public/js
+            public/mix-manifest.json
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-${{ hashFiles('**/package-lock.json') }}
+            npm-
+
+      # Install node dependencies
       - name: Install assets
-        run: yarn
+        run: npm ci
 
-      # Run Webpack
+      # Compile assets
       - name: Compile assets
-        run: yarn run prod
+        run: npm run build
 
       #
       # DEPLOYMENT

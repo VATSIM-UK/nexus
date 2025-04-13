@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Livewire\LandingPage;
+use App\Livewire\LandingPage;
 use Illuminate\Support\Facades\Route;
 
 /*

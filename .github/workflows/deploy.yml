@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Codes
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ github.event.client_payload.ref }}
@@ -70,9 +70,9 @@ jobs:
       #
 
       - name: Setup Yarn
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '22'
 
       #
       # YARN BUILD
@@ -85,7 +85,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Restore Yarn Cache
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}

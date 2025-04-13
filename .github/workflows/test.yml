@@ -21,7 +21,7 @@ jobs:
         php: ["8.4"]
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       #
       # ENVIRONMENT DEPENDENCIES SETUP
@@ -32,9 +32,9 @@ jobs:
           php-version: ${{ matrix.php }}
 
       - name: Setup Yarn
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: "12"
+          node-version: "22"
 
       # Start MySQL and Create Databases
       - name: Create Databases
@@ -57,7 +57,7 @@ jobs:
           echo "::set-output name=dir::$(composer config cache-files-dir)"
 
       - name: Restore Composer Cache
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -65,7 +65,7 @@ jobs:
             ${{ runner.os }}-composer-
 
       - name: Restore Vendor From Cache
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: vendor
           key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
@@ -84,7 +84,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Restore Yarn Cache
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
